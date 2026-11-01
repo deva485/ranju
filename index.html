@@ -1,0 +1,496 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#180e27">
+<title>For Ranju 🦋</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,600;1,500&family=Poppins:wght@300;400;500;600&family=Great+Vibes&display=swap" rel="stylesheet">
+
+<style>
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+ margin:0;background:#180e27;color:#fff0f7;
+ font-family:Poppins,sans-serif;overflow-x:hidden;
+}
+button{font:inherit;cursor:pointer}
+section{padding:85px 20px;text-align:center}
+h1,h2{font-family:"Playfair Display",serif;font-weight:500}
+h2{font-size:clamp(30px,7vw,48px);color:#ffc6e0}
+p{line-height:1.9}
+.gold{color:#f6d8a7}
+.script{font-family:"Great Vibes",cursive;color:#ffc4df}
+.small{font-size:12px;letter-spacing:4px;text-transform:uppercase;color:#e8b7d4}
+.btn{
+ border:1px solid #f6c7df;border-radius:40px;
+ padding:13px 27px;background:linear-gradient(120deg,#e78bb8,#a86bd3);
+ color:white;box-shadow:0 0 25px #d785bd50;
+ margin:8px;
+}
+.btn:hover{transform:scale(1.04)}
+#intro{
+ position:fixed;inset:0;z-index:50;
+ display:flex;flex-direction:column;align-items:center;
+ justify-content:center;text-align:center;
+ background:radial-gradient(ellipse,#59335e,#180e27 70%);
+ padding:20px;transition:opacity 1s,visibility 1s;
+}
+#intro.gone{opacity:0;visibility:hidden;pointer-events:none}
+#intro h1{font-size:clamp(45px,11vw,85px);margin:12px 0}
+#intro .script{font-size:clamp(30px,8vw,52px)}
+.star{position:fixed;color:#ffe5f4;pointer-events:none;animation:twinkle 3s infinite alternate}
+@keyframes twinkle{from{opacity:.2;transform:scale(.7)}to{opacity:1;transform:scale(1.3)}}
+#home{min-height:100vh;display:flex;flex-direction:column;justify-content:center;align-items:center;
+ background:radial-gradient(ellipse at 50% 40%,#593252,#180e27 75%)}
+.hero-name{font-size:clamp(55px,13vw,100px);color:#ffd2e7;text-shadow:0 0 35px #e98cc4}
+.hero-script{font-size:clamp(35px,9vw,60px)}
+#envelope{
+ width:min(290px,80vw);height:190px;position:relative;
+ margin:45px auto;cursor:pointer;perspective:800px;
+}
+.env-body{
+ position:absolute;inset:0;background:#f4c4d9;
+ border-radius:5px;overflow:hidden;
+}
+.env-flap{
+ position:absolute;top:0;left:0;width:0;height:0;
+ border-left:145px solid transparent;border-right:145px solid transparent;
+ border-top:110px solid #d989b4;
+ transform-origin:top;transition:transform .9s;z-index:3;
+}
+.env-note{
+ position:absolute;inset:15px 18px;background:#fff9f4;
+ color:#9a4773;padding:22px 8px;font-family:"Great Vibes",cursive;
+ font-size:26px;transition:transform 1s;z-index:1;
+}
+#envelope.open .env-flap{transform:rotateX(180deg)}
+#envelope.open .env-note{transform:translateY(-105px)}
+.env-heart{position:absolute;z-index:4;top:70px;left:calc(50% - 16px);font-size:30px}
+.panel{
+ max-width:850px;margin:25px auto;
+ border:1px solid #ffffff25;border-radius:25px;
+ background:#ffffff09;padding:35px 20px;
+ box-shadow:0 10px 40px #0003;
+}
+.timeline{max-width:400px;margin:35px auto;text-align:left}
+.event{border-left:2px solid #d58bb7;padding:5px 0 30px 25px;position:relative}
+.event:before{
+ content:"✦";position:absolute;left:-10px;top:0;
+ color:#f8c8df;background:#180e27;
+}
+.event img{
+ width:100%;max-height:450px;object-fit:cover;
+ border-radius:16px;margin-top:15px;
+}
+.gallery{
+ display:grid;grid-template-columns:repeat(2,minmax(0,1fr));
+ gap:17px;max-width:800px;margin:35px auto;
+}
+.polaroid{
+ background:#fff8f3;color:#7a4262;padding:9px 9px 17px;
+ transform:rotate(-2deg);box-shadow:0 8px 20px #0004;
+ cursor:pointer;
+}
+.polaroid:nth-child(even){transform:rotate(2deg)}
+.polaroid img{
+ width:100%;aspect-ratio:1;object-fit:cover;display:block;
+}
+.polaroid p{font-size:12px;margin:10px 0 0;line-height:1.4}
+#cake{font-size:105px;cursor:pointer;display:inline-block}
+.candle{font-size:35px;cursor:pointer}
+#letter{
+ white-space:pre-line;text-align:left;max-width:650px;
+ margin:auto;line-height:2;font-size:15px;
+}
+.secret{
+ max-width:600px;margin:auto;
+ background:linear-gradient(145deg,#593354,#291c3b);
+ border:1px solid #d9a8ce;border-radius:25px;padding:35px 20px;
+}
+.giftbox{font-size:100px;cursor:pointer;display:block;margin:20px}
+.hidden{display:none!important}
+#viewer{
+ position:fixed;inset:0;background:#100b1aeF;
+ z-index:100;display:flex;align-items:center;justify-content:center;padding:20px;
+}
+#viewer img{max-width:100%;max-height:78vh;object-fit:contain;border-radius:12px}
+#viewer button{position:absolute;top:20px;right:20px}
+.heart{
+ position:fixed;bottom:-40px;pointer-events:none;z-index:80;
+ animation:rise 6s linear forwards;
+}
+@keyframes rise{to{transform:translateY(-110vh) rotate(360deg);opacity:0}}
+footer{padding:30px;text-align:center;color:#cda6c1;font-size:12px}
+@media(max-width:420px){
+ .gallery{gap:10px}
+ .panel{padding:25px 14px}
+}
+@media(prefers-reduced-motion:reduce){
+ *,*::before,*::after{animation-duration:.01ms!important;scroll-behavior:auto!important}
+}
+</style>
+</head>
+
+<body>
+
+<div id="intro">
+ <p class="small">A little universe created for</p>
+ <h1>Ranjana</h1>
+ <div class="script">A very special soul 🦋</div>
+ <p>Something magical is waiting for you...</p>
+ <button class="btn" onclick="enter()">ENTER YOUR WORLD ✨</button>
+</div>
+
+<div id="stars"></div>
+
+<section id="home">
+ <p class="small">Today is all about you</p>
+ <h1 class="hero-name">Ranju</h1>
+ <div class="script hero-script">Happy Birthday, Beautiful! ♡</div>
+ <p>A little surprise, filled with a lot of love.</p>
+ <a href="#envelopeSection"><button class="btn">Discover your surprise ↓</button></a>
+</section>
+
+<section id="envelopeSection">
+ <p class="small">A message from the heart</p>
+ <h2>Something for you 💌</h2>
+ <p>Before anything else, I have a little letter...</p>
+ <div id="envelope" onclick="openEnvelope()">
+  <div class="env-body"></div>
+  <div class="env-note">To my favourite person ♡</div>
+  <div class="env-flap"></div>
+  <div class="env-heart">💗</div>
+ </div>
+ <p id="envText">Tap the envelope to open it</p>
+ <div id="envMessage" class="panel hidden">
+  <div class="script" style="font-size:38px">Dear Ranjana,</div>
+  <p>You deserve a day as lovely, special and beautiful as your heart. Today, let the whole world celebrate you! 🌷</p>
+  <button class="btn" onclick="goTo('story')">Let's relive some memories ♡</button>
+ </div>
+</section>
+
+<section id="story">
+ <p class="small">A little walk down memory lane</p>
+ <h2>Our Little Story 🦋</h2>
+ <p>Some moments become memories. Some people become family.</p>
+ <div class="timeline" id="timeline"></div>
+</section>
+
+<section id="gallerySection">
+ <p class="small">Captured moments</p>
+ <h2>A Thousand Little Smiles 📸</h2>
+ <p>Every picture has a story. These are some of my favourites.</p>
+ <div class="gallery" id="gallery"></div>
+</section>
+
+<section id="birthday">
+ <p class="small">The most important moment</p>
+ <h2>Make a Wish, Birthday Girl! 🎂</h2>
+ <p>Tap the candle to blow out your birthday wish!</p>
+ <div id="cake" onclick="blowCandles()">🎂</div>
+ <p id="cakeText">One wish. Infinite possibilities. ✨</p>
+ <button class="btn" onclick="celebrate()">LET'S CELEBRATE 🎉</button>
+</section>
+
+<section id="letterSection">
+ <p class="small">A few words I want you to keep</p>
+ <h2>A Letter For You ♡</h2>
+ <div class="panel">
+  <div id="letter" ></div>
+  <p class="script" style="font-size:36px;text-align:right">With love,</p>
+  <p id="signature" style="text-align:right">Your Best Friend ❤️</p>
+ </div>
+</section>
+
+<section id="final">
+ <p class="small">One last little surprise</p>
+ <h2>There's Something More 🎁</h2>
+ <div class="secret">
+  <p>You have reached the end of this little journey...</p>
+  <button class="giftbox" onclick="openFinal()">🎁</button>
+  <p>Tap to unlock your final surprise</p>
+  <div id="finalMessage" class="hidden">
+   <div class="script" style="font-size:48px">Forever & Always ♡</div>
+   <h2>Thank you for being YOU!</h2>
+   <p>Life is better with you in it, Ranju. I hope we create a million more memories together. No matter where life takes us, you'll always have a special place in my heart. 💗</p>
+   <div style="font-size:55px">🦋🌷💖</div>
+   <button class="btn" onclick="celebrate()">One more celebration!</button>
+  </div>
+ </div>
+</section>
+
+<footer>
+ Made with love, just for Ranju ♡<br>
+ A friendship worth celebrating forever.
+</footer>
+
+<div id="viewer" class="hidden" onclick="closeViewer()">
+ <button class="btn">✕ Close</button>
+ <img id="largeImage" alt="Friendship memory">
+</div>
+
+<audio id="music" loop>
+ <source src="birthday.mp3" type="audio/mpeg">
+</audio>
+
+<script>
+
+// ======================================
+// PERSONAL DETAILS - EDIT THESE
+// ======================================
+
+const sender = "Your Best Friend";
+
+const birthdayLetter = `Dear Ranju,
+
+Happy Birthday to my favourite girl! 💗
+
+If I could give you one thing in life,
+it would be the ability to see yourself
+through my eyes. Then you would know
+just how special you truly are.
+
+Thank you for all the laughter, the silly
+conversations, the little adventures,
+and the beautiful memories.
+
+I hope this new year brings you happiness
+beyond your imagination, dreams that come
+true, and countless reasons to smile.
+
+No matter how much time passes,
+I hope we never lose this beautiful bond.
+
+Stay the same wonderful person.
+Keep shining, keep smiling,
+and never forget how loved you are.
+
+Happy Birthday once again, Ranju! 🎂
+
+Here's to forever friendship,
+unlimited memories and endless laughter.
+
+Love you, Once again! 💗`;
+
+// ADD YOUR REAL PHOTOS HERE.
+// The filename and extension must match GitHub.
+
+const photos = [
+ {file:"photos/photo1.jpeg",caption:"A beautiful memory ♡"},
+ {file:"photos/photo2.jpeg",caption:"That unforgettable smile"},
+ {file:"photos/photo3.jpeg",caption:"Little moments, big happiness"},
+ {file:"photos/photo4.jpeg",caption:"A memory to keep forever"},
+ {file:"photos/photo5.jpeg",caption:"My favourite girl 🌷"},
+ {file:"photos/photo6.jpeg",caption:"More laughter, please!"},
+ {file:"photos/photo7.jpeg",caption:"A special moment"},
+ {file:"photos/photo8.jpeg",caption:"Simply precious"},
+ {file:"photos/photo9.jpeg",caption:"Our happy memories"},
+ {file:"photos/photo10.jpeg",caption:"Forever friend"}
+];
+
+// EDIT THESE MEMORY CAPTIONS IF YOU LIKE.
+
+const memories = [
+ {title:"The beginning of something special",text:"Every beautiful friendship starts with little moments."},
+ {title:"The laughter",text:"All those silly conversations and unforgettable laughs."},
+ {title:"The memories",text:"Some days may pass, but these memories stay forever."},
+ {title:"And the journey continues",text:"Here's to many more beautiful chapters together."}
+];
+
+// ======================================
+// WEBSITE FUNCTIONS
+// ======================================
+
+function enter(){
+ document.getElementById("intro").classList.add("gone");
+ makeHearts(15);
+}
+
+function goTo(id){
+ document.getElementById(id).scrollIntoView({behavior:"smooth"});
+}
+
+let envelopeOpened=false;
+function openEnvelope(){
+ if(envelopeOpened)return;
+ envelopeOpened=true;
+ document.getElementById("envelope").classList.add("open");
+ document.getElementById("envText").textContent="A little love, just for you ♡";
+ setTimeout(()=>{
+  document.getElementById("envMessage").classList.remove("hidden");
+ },700);
+ makeHearts(15);
+}
+
+function makeHearts(amount){
+ const icons=["💗","💕","🦋","✨","🌸","💖"];
+ for(let i=0;i<amount;i++){
+  setTimeout(()=>{
+   const h=document.createElement("span");
+   h.className="heart";
+   h.textContent=icons[Math.floor(Math.random()*icons.length)];
+   h.style.left=Math.random()*95+"vw";
+   h.style.fontSize=(17+Math.random()*23)+"px";
+   h.style.animationDuration=(3+Math.random()*4)+"s";
+   document.body.appendChild(h);
+   setTimeout(()=>h.remove(),7500);
+  },i*90);
+ }
+}
+
+// CREATE STARS
+const stars=document.getElementById("stars");
+for(let i=0;i<45;i++){
+ const s=document.createElement("span");
+ s.className="star";
+ s.textContent="✦";
+ s.style.left=Math.random()*100+"vw";
+ s.style.top=Math.random()*100+"vh";
+ s.style.animationDelay=Math.random()*3+"s";
+ s.style.fontSize=(7+Math.random()*12)+"px";
+ stars.appendChild(s);
+}
+
+// CREATE TIMELINE
+const timeline=document.getElementById("timeline");
+memories.forEach((m,i)=>{
+ const item=document.createElement("div");
+ item.className="event";
+ const heading=document.createElement("h3");
+ heading.className="gold";
+ heading.textContent=m.title;
+ const description=document.createElement("p");
+ description.textContent=m.text;
+ item.append(heading,description);
+ if(photos[i]){
+  const img=document.createElement("img");
+  img.src=photos[i].file;
+  img.alt=m.title;
+  img.onerror=()=>img.remove();
+  item.appendChild(img);
+ }
+ timeline.appendChild(item);
+});
+
+// PHOTO GALLERY
+const gallery=document.getElementById("gallery");
+photos.forEach(photo=>{
+ const card=document.createElement("div");
+ card.className="polaroid";
+ const img=document.createElement("img");
+ img.src=photo.file;
+ img.alt=photo.caption;
+ img.loading="lazy";
+ img.onerror=()=>card.remove();
+ const caption=document.createElement("p");
+ caption.textContent=photo.caption;
+ card.append(img,caption);
+ card.onclick=()=>showViewer(photo.file);
+ gallery.appendChild(card);
+});
+
+function showViewer(src){
+ document.getElementById("largeImage").src=src;
+ document.getElementById("viewer").classList.remove("hidden");
+}
+function closeViewer(){
+ document.getElementById("viewer").classList.add("hidden");
+}
+
+// LETTER TYPEWRITER
+document.getElementById("signature").textContent=sender+" ❤️";
+let typed=false;
+
+const observer=new IntersectionObserver(entries=>{
+ entries.forEach(entry=>{
+  if(entry.isIntersecting&&!typed){
+   typed=true;
+   typeLetter(0);
+  }
+ });
+},{threshold:.3});
+
+observer.observe(document.getElementById("letterSection"));
+
+function typeLetter(index){
+ const target=document.getElementById("letter");
+ if(index< birthdayLetter.length){
+  target.textContent+=birthdayLetter[index];
+  setTimeout(()=>typeLetter(index+1),24);
+ }
+}
+
+// CANDLE INTERACTION
+let candlesBlown=false;
+function blowCandles(){
+ if(candlesBlown)return;
+ candlesBlown=true;
+ document.getElementById("cake").textContent="🎂";
+ document.getElementById("cakeText").textContent=
+  "Your wish has been sent to the universe! 🌟";
+ makeHearts(30);
+}
+
+// FINAL GIFT
+let finalOpened=false;
+function openFinal(){
+ if(finalOpened)return;
+ finalOpened=true;
+ document.getElementById("finalMessage").classList.remove("hidden");
+ celebrate();
+}
+
+// CELEBRATION
+function celebrate(){
+ makeHearts(55);
+ const colors=["#ffb8d8","#f5d69a","#d4a5ff","#ffffff"];
+ const canvas=document.createElement("canvas");
+ canvas.style.cssText="position:fixed;inset:0;width:100%;height:100%;pointer-events:none;z-index:90";
+ document.body.appendChild(canvas);
+ const ctx=canvas.getContext("2d");
+ const dpr=Math.min(devicePixelRatio||1,2);
+ canvas.width=innerWidth*dpr;
+ canvas.height=innerHeight*dpr;
+ ctx.scale(dpr,dpr);
+
+ const particles=Array.from({length:130},()=>({
+  x:Math.random()*innerWidth,
+  y:-Math.random()*innerHeight,
+  size:3+Math.random()*5,
+  speed:2+Math.random()*4,
+  color:colors[Math.floor(Math.random()*colors.length)]
+ }));
+ let frame=0;
+
+ function draw(){
+  ctx.clearRect(0,0,innerWidth,innerHeight);
+  particles.forEach(p=>{
+   ctx.fillStyle=p.color;
+   ctx.fillRect(p.x,p.y,p.size,p.size*1.5);
+   p.y+=p.speed;
+   p.x+=Math.sin(p.y/20);
+   if(p.y>innerHeight)p.y=-10;
+  });
+  frame++;
+  if(frame<180)requestAnimationFrame(draw);
+  else canvas.remove();
+ }
+ draw();
+}
+
+// MUSIC
+// Add a file called birthday.mp3 next to index.html.
+// Browsers require a user tap before music can play.
+document.addEventListener("click",()=>{
+ const music=document.getElementById("music");
+ if(music.paused){
+  music.play().catch(()=>{});
+ }
+},{once:true});
+
+</script>
+</body>
+</html>
